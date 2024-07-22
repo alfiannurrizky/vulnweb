@@ -1,0 +1,37 @@
+{% extends "base.html" %} {% block title %}Home - My Website{% endblock %} {%
+block content %}
+<div class="jumbotron text-center bg-light py-5">
+  <h1 class="display-4">Welcome Super Duper Secure Web App</h1>
+  <p class="lead">
+    Lorem ipsum dolor, sit amet consectetur adipisicing elit. Laborum tenetur
+    reiciendis nobis voluptatum ab eum minus culpa mollitia, at adipisci.
+  </p>
+  <hr class="my-4" />
+  <p>
+    Lorem, ipsum dolor sit amet consectetur adipisicing elit. Placeat numquam
+    adipisci debitis quos in ad consequuntur soluta, quis laudantium autem.
+  </p>
+  <a class="btn btn-danger btn-lg" href="#" role="button">Click Here</a>
+</div>
+
+<div class="row mt-4">
+  <div class="col-md-3 mt-1 mb-4">
+    <div class="card h-100 border-0 rounded shadow-sm custom-card">
+      <img
+        src="https://pbs.twimg.com/profile_images/1674815862879178752/nTGMV1Eo_400x400.jpg"
+        class="card-img-top"
+        alt="Pizza image"
+      />
+      <div class="card-body bg-light-custom text-center rounded-bottom">
+        <h5 class="font-weight-semibold mb-2">Bill Gates</h5>
+        <hr />
+        <p class="mb-1">Position: Co-founder</p>
+        <p class="mb-1">Company: Microsoft</p>
+        <hr />
+        <a class="btn btn-outline-primary btn-sm" href="#">Detail</a>
+      </div>
+    </div>
+  </div>
+  <!-- Repeat the above block for more team members -->
+</div>
+{% endblock %}
