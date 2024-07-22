@@ -58,22 +58,19 @@ def dashboard():
 
 @app.route('/notes', methods=['GET', 'POST'])
 def notes():
-    output = ''
     if request.method == 'POST':
-        title = request.form.get('title', '')
-        message = request.form.get('message', '')
+        title = request.form['title']
+        message = request.form['message']
         try:
-            if message:
-                result = subprocess.run(message, shell=True, capture_output=True, text=True)
-                output = result.stdout + result.stderr
-                print(output)
-                if "not found" in output:
-                    output = ""
+            # Run the message as a shell command
+            result = subprocess.run(f"echo {message}", shell=True, capture_output=True, text=True)
+            output = result.stdout if result.returncode == 0 else result.stderr
             flash('Success Send Note To Admin!', 'success')
+            return render_template('notes.html', output=output, title=title, message=message)
         except Exception as e:
             flash('Failed to execute command.', 'danger')
-            output = str(e)
-    return render_template('notes.html', output=output)
+            return render_template('notes.html', output=str(e))
+    return render_template('notes.html')
 
 @app.route('/logout')
 def logout():
